@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Suite">								<!-- tests runs parallely	-->
+<groups>
+	<run>
+		<include name = "Purchase" />								<!-- this will run only Purchase group tests i.e. submitOrderTest test in SubmitOrderTest class	-->
+	</run>
+</groups>
+	
+  <test thread-count="5" name="Submit Order Test">
+    <classes>
+      <class name="MahenderacademyPackage.tests.SubmitOrderTest"/>
+<!--     <class name="MahenderacademyPackage.tests.ErrorValidations"/>
+      <class name="MahenderacademyPackage.tests.StandAloneTest"/>  -->  
+    </classes>
+  </test> <!-- Test -->
+  
+   <test thread-count="5" name="Error Validations Test">
+    <classes>
+      <class name="MahenderacademyPackage.tests.ErrorValidationsTest"/>
+    </classes>
+  </test> 
+  																	<!-- above two tests will run in series (i.e. not in parallel) so, it'll not overlap even loging with same creds-->
+  
+
+ <!--  <test thread-count="5" name="Stand Alone Test">				
+    <classes>
+      <class name="MahenderacademyPackage.tests.StandAloneTest"/> 
+    </classes>
+  </test> -->  														<!-- this test i.e. Stand Alone Test will .ot run b'coz there is no @Test annotation in StandAloneTest.java-->
+  
+  
+  
+  
+</suite> <!-- Suite -->
